@@ -58,6 +58,10 @@ Para iniciar el agente SSH, usamos el siguiente comando:
 ```
 eval $(ssh-agent -s)
 ```
+También se puede usar esta sintaxis:
+```
+eval `ssh-agent -s`
+```
 Nos debe aparecer un mensaje parecido a este:
 ```
 Agent pid 20248
