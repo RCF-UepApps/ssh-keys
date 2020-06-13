@@ -3,7 +3,9 @@
 Lo primero es comprobar que tenemos un **SSH-Server** instalado en nuestro ordenador.  
 
 Si no lo tenemos podemos instalarlo, según nuestro sistema operativo:
+
 - WINDOWS - La forma más fácil es instalar git, que por defecto nos instala un servidor SSH-Server, en concreto OpenSSH.
+    - Realizar todos los comandos desde la consola Git Bash
 - Linux - Por defecto viene instalado en la mayoría de distribuciones, pero si no estuviera instalado, lo podemos instalar con el siguiente comando
     - `sudo apt install openssh-server`
 
@@ -66,10 +68,13 @@ Nos debe aparecer un mensaje parecido a este:
 ```
 Agent pid 20248
 ```
+
 Para añadir la clave al agente usamos el comando:
-```
+
+```markdown
 ssh-add ~/.ssh/id_rsa
 ```
+
 **¡¡Importante!! debemos añadir la clave privada, no la pública.**  
 
 En este punto nos puede pedir la contraseña de la clave, en el caso que le hayamos creado una en el momento de crear la clave.
@@ -77,5 +82,22 @@ En este punto nos puede pedir la contraseña de la clave, en el caso que le haya
 Con esto ya hemos registrado nuestra clave SSH y ya está lista para ser usada.
 
 
+### Activar el SSH-Agent en Windows
 
+En la barra de herramientas, en la herramienta de búsqueda, tecleamos `servicios`  
 
+- Ahora pulsamos el botón derecho -> Ejecutatar como administrador.
+- En el listado de servicios, buscamos el servicio `Open SSH Authorization Agent`
+- Damos doble click sobre este servicio, y seleccionamos habilitarlo, con tipo de inicio automático.
+- Finalmente pulsamos en el botón de `Iniciar`, para iniciar el servicio.
+
+### Para añadir la clave creada, desde la terminal Windows
+
+Para añadir la clave desde la terminal de Windows, debemos usar la ruta absoluta:
+
+```terminal
+C:\Users\nombreUsuario\.ssh/nombre_clave_rsa
+```
+
+Recordar que siempre se añade la clave privada.
+Algunas veces da fallos, por lo que recomiendo hacerlo desde la terminal `git bash`
